@@ -1,0 +1,224 @@
+/* DARK MODE */
+.sidebar--dark.sidebar {
+  background: #232946;
+  color: #fff;
+  box-shadow: 2px 0 8px 0 rgba(50, 60, 120, 0.08);
+}
+
+.sidebar--dark .sidebar-header {
+  border-bottom: 1px solid #393e6e;
+  background: #232946;
+}
+
+.sidebar--dark .app-name {
+  color: #fff;
+}
+
+.sidebar--dark .nav-item:hover {
+  background: #393e6e;
+}
+
+.sidebar--dark .sidebar-profile {
+  border-top: 1px solid #393e6e;
+  background: #232946;
+}
+
+.sidebar--dark .avatar {
+  background: #b8c1ec;
+  color: #232946;
+}
+
+.sidebar--dark .profile-role {
+  color: #b8c1ec;
+}
+
+.sidebar--dark .sidebar-toggle {
+  background: #232946;
+  border: 2px solid #b8c1ec;
+  color: #b8c1ec;
+}
+
+.sidebar--dark .sidebar-toggle:hover {
+  background: #393e6e;
+}
+
+/* LIGHT MODE */
+.sidebar--light.sidebar {
+  background: #f7f7fa;
+  color: #232946;
+  box-shadow: 2px 0 8px 0 rgba(50, 60, 120, 0.04);
+}
+
+.sidebar--light .sidebar-header {
+  border-bottom: 1px solid #e0e0e0;
+  background: #f7f7fa;
+}
+
+.sidebar--light .app-name {
+  color: #232946;
+}
+
+.sidebar--light .nav-item:hover {
+  background: #e0e4f6;
+}
+
+.sidebar--light .sidebar-profile {
+  border-top: 1px solid #e0e0e0;
+  background: #f7f7fa;
+}
+
+.sidebar--light .avatar {
+  background: #e0e4f6;
+  color: #232946;
+}
+
+.sidebar--light .profile-role {
+  color: #6c6f93;
+}
+
+.sidebar--light .sidebar-toggle {
+  background: #f7f7fa;
+  border: 2px solid #e0e4f6;
+  color: #232946;
+}
+
+.sidebar--light .sidebar-toggle:hover {
+  background: #e0e4f6;
+}
+
+/* COMMON STYLES */
+.sidebar {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  min-width: 60px;
+  transition: width 0.2s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  /* height: 90vh; */
+  z-index: 100;
+  margin-top: 60px;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 10px 16px 10px 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  gap: 16px;
+  min-height: 60px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 2px 8px 0 rgba(50, 60, 120, 0.08);
+  margin-right: 0;
+  transition: background 0.2s;
+}
+.logo {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.app-name {
+  white-space: nowrap;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-left: 10px;
+  transition: color 0.2s;
+}
+
+.sidebar-nav {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.nav-icon {
+  font-size: 1.3rem;
+}
+
+.nav-label {
+  font-size: 1rem;
+}
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px;
+  margin-top: auto;
+}
+
+.avatar {
+  font-size: 1.7rem;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: 500;
+}
+
+.profile-role {
+  font-size: 0.9rem;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  right: -16px;
+  top: 10px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  z-index: 2;
+}
