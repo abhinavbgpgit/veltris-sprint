@@ -12,8 +12,7 @@ import TeamPage from "./pages/team/TeamPage";
 import ReportsPage from "./pages/reports/ReportsPage";
 import SettingsPage from "./pages/settings/SettingsPage";
 import DeveloperView from "./pages/developer/DeveloperView";
-import Introduction from "./pages/Introduction";
-import Insights from "./pages/Insights";
+import Introduction from "./pages/introduction/Introduction";
 import React from 'react';
 
 function App() {
@@ -65,14 +64,13 @@ function AppRoutes() {
       "/login",
       "/register",
       "/forgot-password",
-      "/introduction",
-      "/insights"
+      "/introduction"
+      
     ];
     if (
       !isLoggedIn &&
       !allowedPaths.includes(location.pathname) &&
-      !location.pathname.startsWith("/introduction") &&
-      !location.pathname.startsWith("/insights")
+      !location.pathname.startsWith("/introduction") 
     ) {
       navigate("/introduction", { replace: true });
     }
@@ -112,7 +110,7 @@ function AppRoutes() {
           </AuthRedirect>
         } />
         <Route path="/introduction" element={<Introduction />} />
-        <Route path="/insights" element={<Insights />} />
+        
       </Routes>
     </>
   );

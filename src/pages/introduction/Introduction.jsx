@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from "react";
-import { 
-  Layout, 
+import { useNavigate } from "react-router-dom";
+import {
+  Layout,
   Rocket, 
   Users, 
   BarChart3, 
@@ -20,7 +21,8 @@ import {
 } from "lucide-react";
 import { motion, animate, useMotionValue, useTransform } from "framer-motion";
 
-const Insights = () => {
+const Introduction = () => {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("home");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -194,19 +196,20 @@ const Insights = () => {
               and enterprise-grade security in a beautifully intuitive interface.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={() => navigate('/login')}
+                className="border border-slate-600 hover:border-purple-500 px-20 cursor-pointer py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-slate-800/50"
+              >
+               Login
+              </button>
               <button 
                 onClick={() => scrollToSection('features')}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center space-x-2"
+                className="bg-gradient-to-r from-purple-600 cursor-pointer to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center space-x-2"
               >
                 <span>Explore Features</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <button 
-                onClick={() => scrollToSection('pricing')}
-                className="border border-slate-600 hover:border-purple-500 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-slate-800/50"
-              >
-                Request Demo
-              </button>
+             
             </div>
           </motion.div>
 
@@ -641,4 +644,5 @@ const Insights = () => {
   );
 };
 
-export default Insights
+export default Introduction
+

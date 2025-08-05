@@ -126,14 +126,13 @@ const Navbar = () => {
       {/* Left icons */}
       <div className="flex items-center space-x-2">
         {/* <SidebarIcon /> */}
-        {localStorage.getItem("isLoggedIn") === "true" ? (
-          <img
-            src="https://www.veltris.com/wp-content/uploads/2025/05/Veltris.svg"
-            alt="Logo"
-            className="h-10 cursor-pointer"
-            onClick={() => navigate("/dashboard")}
+        <img
+          src="https://www.veltris.com/wp-content/uploads/2025/05/Veltris.svg"
+          alt="Logo"
+          className="h-10 cursor-pointer"
+          onClick={() => navigate("/")}
           />
-        ) : (
+        {localStorage.getItem("isLoggedIn") !== "true" && (
           <button
             className="h-10 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg cursor-pointer"
             onClick={() => navigate("/login")}
