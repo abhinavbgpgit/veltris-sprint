@@ -13,6 +13,7 @@ import ReportsPage from "./pages/reports/ReportsPage";
 import SettingsPage from "./pages/settings/SettingsPage";
 import DeveloperView from "./pages/developer/DeveloperView";
 import Introduction from "./pages/introduction/Introduction";
+import GuestOnlyRoute from "./components/GuestOnlyRoute";
 import React from 'react';
 
 function App() {
@@ -95,7 +96,14 @@ function AppRoutes() {
         return isLoggedIn && isDashboardRoute ? <Navbar /> : null;
       })()}
       <Routes>
-        <Route path="/" element={<Introduction />} />
+        <Route
+          path="/"
+          element={
+            <GuestOnlyRoute>
+              <Introduction />
+            </GuestOnlyRoute>
+          }
+        />
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardHome />} />
           <Route path="tasks" element={<TasksPage />} />
@@ -109,7 +117,14 @@ function AppRoutes() {
             <Login />
           </AuthRedirect>
         } />
-        <Route path="/introduction" element={<Introduction />} />
+        <Route
+          path="/introduction"
+          element={
+            <GuestOnlyRoute>
+              <Introduction />
+            </GuestOnlyRoute>
+          }
+        />
         
       </Routes>
     </>
