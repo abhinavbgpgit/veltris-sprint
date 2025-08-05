@@ -130,7 +130,7 @@ const Navbar = () => {
           src="https://www.veltris.com/wp-content/uploads/2025/05/Veltris.svg"
           alt="Logo"
           className="h-10 cursor-pointer"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/dashboard")}
           />
         {localStorage.getItem("isLoggedIn") !== "true" && (
           <button
