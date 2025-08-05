@@ -19,7 +19,7 @@ const Login = () => {
     // Demo login logic
     if (username === "abhi@gmail.com" && password === "Hello@123") {
       localStorage.setItem("isLoggedIn", "true");
-      window.location.href = "/";
+      window.location.href = "/dashboard";
     } else {
       setFormError("Invalid credentials. Please try again.");
     }

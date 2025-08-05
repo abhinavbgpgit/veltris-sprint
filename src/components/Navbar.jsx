@@ -91,7 +91,7 @@ const Navbar = () => {
   const handleLogout = () => {
     // Clear authentication state
     localStorage.removeItem("isLoggedIn");
-    navigate("/login");
+    navigate("/introduction");
     setShowDropdown(false);
   };
 
@@ -145,12 +145,13 @@ const Navbar = () => {
 
       {/* Search bar */}
       <div className="flex-1 flex justify-center px-4">
-        <div className="flex items-center w-full max-w-2xl bg-white border rounded-lg px-4 py-2">
+        <div className="flex items-center w-full max-w-2xl bg-gray-100 rounded-full px-5 py-2 shadow-sm transition focus-within:ring-2 focus-within:ring-blue-400">
           <SearchIcon />
           <input
             type="text"
             placeholder="Search"
-            className="ml-2 w-full outline-none bg-transparent text-xl text-gray-600"
+            className="ml-3 w-full outline-none bg-transparent text-lg text-gray-700 placeholder-gray-400 focus:placeholder-gray-300"
+            style={{ border: "none" }}
           />
         </div>
       </div>
@@ -159,14 +160,11 @@ const Navbar = () => {
       <div className="flex items-center space-x-3">
         {localStorage.getItem("isLoggedIn") === "true" && (
           <>
-            <button className="flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg text-lg cursor-pointer">
-              <PlusIcon /> Create
-            </button>
             <button className="p-2 rounded hover:bg-gray-100 cursor-pointer"><BellIcon /></button>
             <button className="p-2 rounded hover:bg-gray-100 cursor-pointer"><QuestionIcon /></button>
             <button className="p-2 rounded hover:bg-gray-100 cursor-pointer"><SettingsIcon /></button>
             <button
-              className="p-0 rounded-full focus:outline-none cursor-pointer"
+              className="p-0 rounded-full focus:outline-none cursor-pointer mr-[30px]"
               onClick={() => setShowDropdown((prev) => !prev)}
               aria-label="Open user menu"
               ref={avatarRef}
