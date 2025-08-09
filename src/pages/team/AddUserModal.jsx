@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const AddUserModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
     role: "FE",
@@ -57,7 +56,6 @@ const AddUserModal = ({ isOpen, onClose }) => {
       }
 
       const payload = new FormData();
-      payload.append("name", formData.name);
       payload.append("email", formData.email);
       payload.append("password", formData.password);
       payload.append("role", formData.role);
@@ -76,9 +74,8 @@ const AddUserModal = ({ isOpen, onClose }) => {
         throw new Error(data.message || "Failed to create user");
       }
 
-      setSuccess(`User "${formData.name}" added successfully!`);
+      setSuccess("User added successfully!");
       setFormData({
-        name: "",
         email: "",
         password: "",
         role: "FE",
@@ -133,20 +130,6 @@ const AddUserModal = ({ isOpen, onClose }) => {
                   {success}
                 </div>
               )}
-              {/* Name */}
-              <div className="space-y-1">
-                <label className="text-sm font-medium text-gray-700">Full Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="e.g., Alex Johnson"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  required
-                  disabled={loading}
-                />
-              </div>
 
               {/* Email */}
               <div className="space-y-1">
