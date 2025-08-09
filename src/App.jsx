@@ -15,6 +15,7 @@ import DeveloperView from "./pages/developer/DeveloperView";
 import Introduction from "./pages/introduction/Introduction";
 import GuestOnlyRoute from "./components/GuestOnlyRoute";
 import React from 'react';
+import UserPage from './pages/team/UserPage';
 
 function App() {
   const mode = useSelector((state) => state.theme.mode);
@@ -79,23 +80,8 @@ function AppRoutes() {
 
   return (
     <>
-      {/* Show Navbar only if user is logged in and on a dashboard route */}
-      {(() => {
-        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-        // List of dashboard base routes
-        const dashboardRoutes = [
-          "/", "/tasks", "/team", "/reports", "/settings"
-        ];
-        // Check if current path is a dashboard route (root or nested)
-        const isDashboardRoute =
-          location.pathname === "/" ||
-          location.pathname.startsWith("/tasks") ||
-          location.pathname.startsWith("/team") ||
-          location.pathname.startsWith("/reports") ||
-          location.pathname.startsWith("/settings");
-        return isLoggedIn && isDashboardRoute ? <Navbar /> : null;
-      })()}
       <Routes>
+        {/* Routes that do NOT show sidebar/navbar */}
         <Route
           path="/"
           element={
@@ -104,19 +90,6 @@ function AppRoutes() {
             </GuestOnlyRoute>
           }
         />
-        <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<DashboardHome />} />
-          <Route path="tasks" element={<TasksPage />} />
-          <Route path="team" element={<TeamPage />} />
-          <Route path="reports" element={<ReportsPage />} />
-          <Route path="settings" element={<SettingsPage />} />
-        </Route>
-        <Route path="/developer" element={<DeveloperView />} />
-        <Route path="/login" element={
-          <AuthRedirect>
-            <Login />
-          </AuthRedirect>
-        } />
         <Route
           path="/introduction"
           element={
@@ -125,10 +98,31 @@ function AppRoutes() {
             </GuestOnlyRoute>
           }
         />
-        
+        <Route
+          path="/login"
+          element={
+            <AuthRedirect>
+              <Login />
+            </AuthRedirect>
+          }
+        />
+        <Route path="/developer" element={<DeveloperView />} />
+
+        {/* Dashboard routes with persistent sidebar/navbar */}
+        <Route element={<DashboardLayout />}>
+          <Route path="/dashboard" element={<DashboardHome />} />
+          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/team/:userId" element={<UserPage />} />
+          <Route path="/reports" element={<ReportsPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Route>
       </Routes>
     </>
   );
 }
+
+// Add direct route for /team/user/:userId to fix routing issue
+// (This is outside the AppRoutes function, so add the route above)
 
 export default App

@@ -124,22 +124,15 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-[200] flex items-center justify-between px-4 py-2 border-b bg-white">
       {/* Left icons */}
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center  flex-col relative">
         {/* <SidebarIcon /> */}
         <img
           src="https://www.veltris.com/wp-content/uploads/2025/05/Veltris.svg"
           alt="Logo"
-          className="h-10 cursor-pointer"
+          className="h-8 cursor-pointer mb-4 "
           onClick={() => navigate("/dashboard")}
           />
-        {localStorage.getItem("isLoggedIn") !== "true" && (
-          <button
-            className="h-10 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg cursor-pointer"
-            onClick={() => navigate("/login")}
-          >
-            Sign In
-          </button>
-        )}
+      <div className="text-blue-700 text-[14px] font-semibold ml-8 absolute w-96 top-6"> Sprint Planner</div>
       </div>
 
       {/* Search bar */}

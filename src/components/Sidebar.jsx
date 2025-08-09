@@ -5,10 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 const navItems = [
   { label: "Dashboard", icon: "📊", path: "/dashboard" },
-  { label: "Tasks", icon: "📝", path: "/dashboard/tasks" },
-  { label: "Team", icon: "👥", path: "/dashboard/team" },
-  { label: "Reports", icon: "📈", path: "/dashboard/reports" },
-  { label: "Settings", icon: "⚙️", path: "/dashboard/settings" }
+  { label: "Tasks", icon: "📝", path: "/tasks" },
+  { label: "Team", icon: "👥", path: "/team" },
+  { label: "Reports", icon: "📈", path: "/reports" },
+  { label: "Settings", icon: "⚙️", path: "/settings" }
   // Removed register/logout nav item
 ];
 
@@ -49,7 +49,7 @@ const Sidebar = ({ collapsed, onCollapse }) => {
               exit={{ opacity: 0, x: -10 }}
               transition={{ duration: 0.2 }}
             >
-              Sprint Planner
+              Presence Sleep
             </motion.span>
           )}
         </AnimatePresence>
